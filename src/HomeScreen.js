@@ -1,9 +1,15 @@
 import React from 'react'
 import './HomeScreen.css'
+import Nav from './Nav'
 
 const HomeScreen = () => {
   return (
-    <div className='bac' >HomeScreen</div>
+    <div className='homeScreen' >
+        {/* Nav */}
+        <Nav/>
+        {/* Banner */}
+        {/* Row */}
+    </div>
   )
 }
 
