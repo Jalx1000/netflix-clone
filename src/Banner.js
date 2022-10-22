@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Banner.css";
-import BannerImg from "./assets/Cover.png";
+import axios from "./axios";
+import requests from "./Requests";
 
 function Banner() {
-  
+  const [movie, setMovie] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchNetflixOriginals)
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+      return request;
+    }
+    fetchData()
+  },[])
+
   function truncade(string,n) {
     return string?.length > n ? string.substring(0,n-1) + '...' : string
   }
@@ -13,22 +28,21 @@ function Banner() {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url(${BannerImg})`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     >
       
       <div className="banner_contents">
-        <h1 className="banner_title">Movie Name</h1>
+        <h1 className="banner_title">
+          {movie?.title || movie?.name || movie.original_name}
+        </h1>
         <div className="banner_buttons">
-          <button className="banner_button">Plat</button>
+          <button className="banner_button">Play</button>
           <button className="banner_button">My List</button>
         </div>
         <h1 className="banner_description">
-          {truncade(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-          laudantium reprehenderit facilis aliquam optio nulla similique quidem,
-          iure quam officiis at expedita molestias odit pariatur dignissimos
-          repellendus consectetur neque id.`,150)}
+          {truncade(movie?.overview,150)}
         </h1>
       </div>
 
