@@ -1,17 +1,39 @@
 import "./LoginScreen.css";
-
 import React from "react";
 
 function LoginLoginScreen() {
-  const cover =
-    "https://assets.nflxext.com/ffe/siteui/vlv3/79fe83d4-7ef6-4181-9439-46db72599559/10950ffa-a240-4d8e-b3ff-fc8953361818/BO-es-20221017-popsignuptwoweeks-perspective_alpha_website_large.jpg";
   return (
     <div className="loginScreen">
       <div className="loginScreen_background">
-        <img 
-          className="loginScreen__logo" 
-          src={cover} 
-          alt="Cover" />
+        <img
+          className="loginScreen__logo"
+          src="https://top10.netflix.com/images/logo.png"
+          alt="Netflix"
+        />
+        <button className="loginScreen__button">Sign In</button>
+        
+        <div className="loginScreen__gradient" />
+      </div>
+
+      <div className="loginScreen__body">
+        
+        <>
+          <h1>Unlimited movies, TV shows, and more.</h1>
+          <h2>Watch anywhere. Cancel anytime.</h2>
+          <h3>
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </h3>
+
+          <div className="loginScreen__input">
+            <form>
+              <input type="email" placeholder="Email Addres" />
+              <button className="loginScreen__getStarted">GET STARTED</button>
+            </form>
+          </div>
+
+        </>
+
       </div>
     </div>
   );
