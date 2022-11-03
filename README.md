@@ -20,3 +20,5 @@ You may also see any lint errors in the console.
 
 ## Tutorial of Sonny Sangha 
 [Netflix clone](https://youtu.be/HW5roUF2RLg)
+
+[Web](https://netflix-clone-react-f5e2f.web.app)

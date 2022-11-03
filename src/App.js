@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
+import { auth } from "./firebase";
 
-function app() {
+function App() {
   const user = null;
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser)=>{
+      if(authUser){
+        //logged in
+        console.log(authUser)
+      }else{
+        //logged out
+      }
+    });
+    return unsubscribe;
+  }, []);
+
   return (
     <div className="app">
       <Router>
@@ -21,4 +35,4 @@ function app() {
   );
 }
 
-export default app;
+export default App;
