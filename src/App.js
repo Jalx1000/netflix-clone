@@ -9,7 +9,6 @@ import { login, logout, selectUser } from "./features/userSlice";
 
 function App() {
   const user = selectUser;//ojo aca useSelector(selectUser) no da
-  console.log(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
